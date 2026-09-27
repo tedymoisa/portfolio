@@ -18,53 +18,72 @@ const {
   pageTitle,
   pageDescription,
   ogTitle,
-  ogType = "article",
+  ogType = "website",
   ogImage = "/og-image.png",
   canonicalURL = Astro.url.href,
 } = Astro.props;
 const absoluteOgImageUrl = new URL(ogImage, Astro.site || Astro.url).href;
+const siteUrl = (Astro.site || Astro.url).href;
 
 const sitePublishedDate = "2025-07-25T00:00:00.000Z";
 const siteUpdatedDate = new Date().toISOString();
+const personId = `${canonicalURL}#person`;
 const jsonLdData = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: `${db.name} ${db.surname}`,
-  givenName: db.name,
-  familyName: db.surname,
-  jobTitle: db.profession,
-  url: canonicalURL,
-  image: absoluteOgImageUrl,
-  sameAs: [db.linkedin, db.github, "https://instagram.com/tedymoisa"],
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: "Università degli Studi di Verona",
-    url: "https://univr.it",
-  },
-  knowsAbout: [
-    "Web Development",
-    "Full-stack Development",
-    "Frontend Development",
-    "Backend Development",
-    "Freelance Development",
-    "JavaScript",
-    "TypeScript",
-    "Java",
-    "Golang",
-    "React",
-    "Next.js",
-    "Spring Boot",
-    "Database Management",
-    "UI/UX Design",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: `${db.name} ${db.surname} Portfolio`,
+      description: pageDescription,
+      inLanguage: "en",
+      author: { "@id": personId },
+    },
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: `${db.name} ${db.surname}`,
+      givenName: db.name,
+      familyName: db.surname,
+      jobTitle: db.profession,
+      url: canonicalURL,
+      image: absoluteOgImageUrl,
+      sameAs: [db.linkedin, db.github, "https://instagram.com/tedymoisa"],
+      alumniOf: {
+        "@type": "EducationalOrganization",
+        name: "Università degli Studi di Verona",
+        url: "https://univr.it",
+      },
+      homeLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "IT",
+        },
+      },
+      knowsLanguage: ["it", "en"],
+      knowsAbout: [
+        "Web Development",
+        "Full-stack Development",
+        "Frontend Development",
+        "Backend Development",
+        "Freelance Development",
+        "JavaScript",
+        "TypeScript",
+        "Java",
+        "Golang",
+        "React",
+        "Next.js",
+        "Spring Boot",
+        "Database Management",
+        "UI/UX Design",
+      ],
+      description: `${db.name} ${db.surname} is a ${db.profession} based in Italy, available for freelance and contract work with clients worldwide.`,
+      datePublished: sitePublishedDate,
+      dateModified: siteUpdatedDate,
+    },
   ],
-  worksFor: {
-    "@type": "Organization",
-    name: "EGON SRL",
-    url: "https://egon.com",
-  },
-  description: pageDescription,
-  datePublished: sitePublishedDate,
-  dateModified: siteUpdatedDate,
 };
 ---
 
@@ -93,25 +112,14 @@ const jsonLdData = {
         optional: {
           description: pageDescription,
           locale: "en_US",
+          localeAlternate: ["en_GB", "it_IT"],
           siteName: `${db.name} ${db.surname} Portfolio`,
         },
         image: {
           width: 1200,
           height: 630,
-          alt: `${ogTitle} - Social sharing image`,
+          alt: `${db.name} ${db.surname}'s digital business card, showing contact details and an AWS Certified badge`,
           type: "image/png",
-        },
-        article: {
-          publishedTime: sitePublishedDate,
-          modifiedTime: siteUpdatedDate,
-          section: db.profession,
-          authors: [
-            `${db.name} ${db.surname}`,
-            db.linkedin,
-            db.github,
-            "https://instagram.com/tedymoisa",
-          ],
-          tags: jsonLdData.knowsAbout,
         },
       }}
       extend={{
@@ -121,11 +129,19 @@ const jsonLdData = {
             type: "image/svg+xml",
             href: "/favicon.svg",
           },
+          {
+            rel: "apple-touch-icon",
+            href: "/logo-black-180.png",
+          },
         ],
         meta: [
           {
             name: "author",
             content: `${db.name} ${db.surname}`,
+          },
+          {
+            name: "theme-color",
+            content: "#0a0a0b",
           },
           {
             name: "twitter:card",

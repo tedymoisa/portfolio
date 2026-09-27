@@ -5,16 +5,15 @@ import Layout from "../layouts/Layout.astro";
 import { db } from "../lib/database";
 
 const title = `${db.name} ${db.surname} | ${db.profession}`;
-const description = `${db.name} ${db.surname} is a ${db.profession} based in Italy, specializing in custom web applications, cloud architecture on AWS, and freelance software development with modern technologies like Next.js, React, TypeScript, and Spring Boot.`;
+const description = `${db.name} ${db.surname}, a ${db.profession} based in Italy serving clients worldwide, building web apps with the right technology for each project.`;
 const ogTitle = `${db.name} ${db.surname} | ${db.profession}`;
 ---
 
 <Layout pageTitle={title} pageDescription={description} ogTitle={ogTitle}>
   <div class="container">
-    <h1 class="sr-only">{`${db.name} ${db.surname} | ${db.profession}`}</h1>
     <p class="sr-only">
       {
-        `I'm ${db.name} ${db.surname}, a freelance software developer based in Italy. I build custom web applications, backend systems, and cloud architecture on AWS using TypeScript, React, Next.js, and Spring Boot. Available for freelance and contract development work.`
+        `I'm ${db.name} ${db.surname}, a freelance software developer based in Italy, working with clients across Italy, Europe, and worldwide. I build custom web applications, backend systems, and cloud architecture on AWS, choosing whatever technology best fits each project. Available for freelance and contract development work.`
       }
     </p>
 
