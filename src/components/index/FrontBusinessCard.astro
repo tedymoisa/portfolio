@@ -4,7 +4,10 @@ import { db } from "../../lib/database";
 
 <div class="container card-inner-border">
   <div class="header">
-    <h1 class="name">{`${db.name} ${db.surname}`}</h1>
+    <h1 class="name">
+      {`${db.name} ${db.surname}`}
+      <span class="sr-only">{` | ${db.profession}`}</span>
+    </h1>
     <p class="eyebrow">{db.profession}</p>
   </div>
 
