@@ -1,34 +1,19 @@
----
-import { db } from "../../lib/database";
----
-
-<div class="container">
-  <div>
-    <p class="eyebrow">Services</p>
-    <ul class="services">
-      {
-        db.services.map((service) => (
-          <li>
-            <span class="dash">—</span> {service}
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="footer">
-    <div class="links">
-      <a href={db.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href={db.linkedin} target="_blank" rel="noopener noreferrer"
-        >LinkedIn</a
-      >
-    </div>
-
-    <a href={db.resume} target="_blank" rel="noopener noreferrer" class="cta"
-      >Résumé ↓</a
+<div class="container card-inner-border">
+  <div class="badge">
+    <svg
+      class="logo"
+      viewBox="1.5 -0.5 100 100"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="10"
+      stroke-linecap="butt"
+      stroke-linejoin="round"
+      aria-hidden="true"
     >
+      <path d="M34 10V66A18 18 0 0 0 52 84H62"></path>
+      <path d="M16 34H62"></path>
+      <circle cx="80" cy="80" r="7" fill="currentColor" stroke="none"></circle>
+    </svg>
   </div>
 </div>
 
@@ -36,90 +21,23 @@ import { db } from "../../lib/database";
   .container {
     display: flex;
     flex: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--space-5);
+    align-items: center;
+    justify-content: center;
   }
 
-  .eyebrow {
-    margin: 0 0 var(--space-3);
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    color: var(--color-accent);
-  }
-
-  .services {
+  .badge {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .services li {
-    font-family: var(--font-serif);
-    font-size: var(--text-sm);
-    color: var(--color-text-primary);
-  }
-
-  .dash {
-    color: var(--color-text-muted);
-  }
-
-  .divider {
-    height: 2px;
-    flex-shrink: 0;
-    margin: var(--space-4) 0;
-    background: var(--gradient-divider);
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .links {
-    display: flex;
-    gap: var(--space-4);
-  }
-
-  .links a {
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    color: var(--color-text-secondary);
-  }
-
-  .links a:hover {
-    color: var(--color-text-primary);
-    text-shadow: none;
-  }
-
-  .cta {
-    align-self: flex-end;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    color: var(--color-on-accent);
-    background: var(--color-accent-strong);
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: var(--space-2);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
-    padding: var(--space-1) var(--space-3);
-    white-space: nowrap;
   }
 
-  .cta:hover {
-    background: var(--color-accent-bright);
-    color: var(--color-on-accent);
-    text-shadow: none;
-  }
-
-  @media (max-width: 480px) {
-    .container {
-      padding: var(--space-4);
-    }
+  .logo {
+    width: 28px;
+    height: auto;
+    color: var(--color-accent-strong);
   }
 </style>

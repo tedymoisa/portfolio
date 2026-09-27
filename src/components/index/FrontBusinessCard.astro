@@ -2,30 +2,52 @@
 import { db } from "../../lib/database";
 ---
 
-<div class="container">
-  <div class="credentials">
-    <p class="eyebrow">{db.profession}</p>
+<div class="container card-inner-border">
+  <div class="header">
     <h1 class="name">{`${db.name} ${db.surname}`}</h1>
+    <p class="eyebrow">{db.profession}</p>
   </div>
 
   <div class="divider"></div>
 
   <div class="contacts">
-    <a href={`tel:${db.phone}`}>{db.phone}</a>
-    <a href={`mailto:${db.email}`}>{db.email}</a>
-    <a href={`https://${db.website}`} target="_blank" rel="noopener noreferrer"
-      >{db.website}</a
-    >
+    <div class="contact-row">
+      <span class="label">Tel</span>
+      <a href={`tel:${db.phone}`}>{db.phone}</a>
+    </div>
+    <div class="contact-row">
+      <span class="label">Mail</span>
+      <a href={`mailto:${db.email}`}>{db.email}</a>
+    </div>
+    <div class="contact-row">
+      <span class="label">Web</span>
+      <a
+        href={`https://${db.website}`}
+        target="_blank"
+        rel="noopener noreferrer">{db.website}</a
+      >
+    </div>
   </div>
 
-  <a
-    href={db.certification}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="aws-badge"
-  >
-    AWS Certified
-  </a>
+  <div class="footer">
+    <a
+      href={db.certification}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="aws"
+    >
+      <span class="dot"></span><span>AWS Certified</span>
+    </a>
+
+    <a
+      href={db.resume}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="resume"
+    >
+      Résumé ↓
+    </a>
+  </div>
 </div>
 
 <style>
@@ -34,25 +56,32 @@ import { db } from "../../lib/database";
     flex: 1;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--space-5);
   }
 
-  .eyebrow {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-mono);
-    font-size: var(--text-2xs);
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    color: var(--color-accent);
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
 
   .name {
     margin: 0;
-    font-family: var(--font-serif);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    line-height: 1.2;
+    font-family: var(--font-mono);
+    font-size: var(--text-md);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.01em;
     color: var(--color-text-primary);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-accent);
   }
 
   .divider {
@@ -65,47 +94,95 @@ import { db } from "../../lib/database";
   .contacts {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
     gap: var(--space-2);
     flex: 1;
   }
 
-  .contacts a {
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .label {
+    width: 2.8em;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .contact-row a {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
+    line-height: var(--leading-snug);
     color: var(--color-text-secondary);
   }
 
-  .contacts a:hover {
+  .contact-row a:hover {
     color: var(--color-text-primary);
     text-shadow: none;
   }
 
-  .aws-badge {
-    align-self: flex-end;
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .aws {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     font-family: var(--font-mono);
     font-size: var(--text-2xs);
+    line-height: var(--leading-tight);
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     color: var(--color-accent);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: var(--space-1) var(--space-3);
   }
 
-  .aws-badge:hover {
+  .aws:hover {
     color: var(--color-accent-bright);
-    border-color: var(--color-accent);
+    text-shadow: none;
+  }
+
+  .dot {
+    width: var(--space-1);
+    height: var(--space-1);
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .resume {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    line-height: var(--leading-snug);
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-on-accent);
+    background: var(--color-accent-strong);
+    border-radius: var(--radius-sm);
+    padding: var(--space-1) var(--space-3);
+    white-space: nowrap;
+  }
+
+  .resume:hover {
+    background: var(--color-accent-bright);
+    color: var(--color-on-accent);
     text-shadow: none;
   }
 
   @media (max-width: 480px) {
-    .container {
-      padding: var(--space-4);
-    }
-
     .name {
-      font-size: var(--text-lg);
+      font-size: var(--text-sm);
     }
   }
 </style>
