@@ -1,4 +1,6 @@
 ---
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/600.css";
 import "../styles/theme.css";
 import { db } from "../lib/database";
 import { SEO } from "astro-seo";
@@ -202,7 +204,7 @@ const jsonLdData = {
   h6 {
     margin-top: 0;
     margin-bottom: 0.5em;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--color-text-primary);
   }
 
@@ -236,6 +238,30 @@ const jsonLdData = {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .card-inner-border {
+    position: relative;
+    padding: var(--space-7);
+  }
+
+  .card-inner-border::before {
+    content: "";
+    position: absolute;
+    inset: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-inset);
+    pointer-events: none;
+  }
+
+  @media (max-width: 480px) {
+    .card-inner-border {
+      padding: var(--space-5);
+    }
+
+    .card-inner-border::before {
+      inset: var(--space-2);
+    }
   }
 
   .sr-only {

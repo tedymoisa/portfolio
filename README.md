@@ -14,7 +14,7 @@ The centerpiece of the site is a digital business card that flips on user intera
 
 This is the brand identity used across the portfolio.
 
-![My Custom Logo](public/paw-drawing-white.svg)
+![My Custom Logo](public/logo-black.svg)
 
 ### Social Media & Sharing Preview (OG Image)
 
@@ -26,7 +26,7 @@ When the portfolio link is shared on social media platforms, this is the beautif
 
 ## 🚀 Key Features
 
-- **Interactive Business Card:** A unique digital business card on the homepage that flips to reveal contact details and professional links.
+- **Interactive Business Card:** A unique digital business card on the homepage that flips between contact details on the front and a minimal logo mark on the back.
 - **Blazing Fast Performance:** Built with Astro, the site leverages an island architecture to ship zero JavaScript by default, ensuring near-instant load times.
 - **Perfect Lighthouse Score:** The website achieves a **perfect score of 100** across all four Lighthouse categories:
   - ✅ **Performance**
