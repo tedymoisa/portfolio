@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+     width="88mm" height="58mm"
+     viewBox="-7.412 -7.412 434.824 286.588">
+<title>Tedy Gabriel Moisa — retro</title>
+<sodipodi:namedview pagecolor="#ffffff" inkscape:document-units="mm"/>
+<defs>
+<linearGradient id="card-back-gradient" gradientUnits="userSpaceOnUse" x1="38.059" y1="-36.059" x2="381.941" y2="307.824">
+  <stop offset="0" stop-color="#242426"/>
+  <stop offset="0.6" stop-color="#19191b"/>
+</linearGradient>
+<linearGradient id="card-back-gradient-paint-1" gradientUnits="userSpaceOnUse" x1="38.059" y1="-36.059" x2="381.941" y2="307.824">
+  <stop offset="0" stop-color="#524839"/>
+  <stop offset="0.6" stop-color="#4a4131"/>
+</linearGradient>
+<linearGradient id="card-back-gradient-paint-2" gradientUnits="userSpaceOnUse" x1="38.059" y1="-36.059" x2="381.941" y2="307.824">
+  <stop offset="0" stop-color="#524839"/>
+  <stop offset="0.6" stop-color="#4a4131"/>
+</linearGradient>
+<linearGradient id="card-back-gradient-paint-3" gradientUnits="userSpaceOnUse" x1="38.059" y1="-36.059" x2="381.941" y2="307.824">
+  <stop offset="0" stop-color="#2b2b2d"/>
+  <stop offset="0.6" stop-color="#202022"/>
+</linearGradient>
+<linearGradient id="card-back-gradient-paint-4" gradientUnits="userSpaceOnUse" x1="38.059" y1="-36.059" x2="381.941" y2="307.824">
+  <stop offset="0" stop-color="#524839"/>
+  <stop offset="0.6" stop-color="#4a4131"/>
+</linearGradient>
+</defs>
+<g inkscape:groupmode="layer" inkscape:label="Sfondo">
+<rect id="bg" x="-7.412" y="-7.412" width="434.824" height="286.588" fill="url(#card-back-gradient)"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Bordo esterno (sul taglio)" style="display:none">
+<rect x="0.5" y="0.5" width="419" height="270.765" rx="9.5" fill="none" stroke="url(#card-back-gradient-paint-2)" stroke-width="1"/>
+<rect x="1.5" y="1.5" width="417" height="268.765" rx="8.5" fill="none" stroke="url(#card-back-gradient-paint-3)" stroke-width="1"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Bordo interno">
+<rect x="13.5" y="13.5" width="393" height="244.765" rx="5.5" fill="none" stroke="url(#card-back-gradient-paint-4)" stroke-width="1"/>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Logo">
+<rect x="187.5" y="113.382" width="45" height="45" rx="3.5" fill="none" stroke="url(#card-back-gradient-paint-1)" stroke-width="1"/>
+<g transform="translate(196 121.882) scale(0.28) translate(-1.5 0.5)">
+  <g fill="none" stroke="#caa96a" stroke-width="10" stroke-linecap="butt" stroke-linejoin="round">
+    <path d="M34 10V66A18 18 0 0 0 52 84H62"/>
+    <path d="M16 34H62"/>
+  </g>
+  <circle cx="80" cy="80" r="7" fill="#caa96a"/>
+</g>
+</g>
+<g inkscape:groupmode="layer" inkscape:label="Guide (taglio / sicurezza)" style="display:none" sodipodi:insensitive="true">
+<rect x="0" y="0" width="420" height="271.765" fill="none" stroke="#ff00ff" stroke-width="0.5"/>
+<rect x="14.824" y="14.824" width="390.353" height="242.118" fill="none" stroke="#00ffff" stroke-width="0.5" stroke-dasharray="2 2"/>
+</g>
+</svg>
